@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Meta Tags Esenciales -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FUT Legends - Juego de stickers tipo Panini 2026 con trivia, álbum digital y ranking beta">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="color-scheme" content="dark light">
+  
+  <!-- Títulos y Branding -->
+  <title>FUT Legends - Album Digital 2026</title>
+  
+  <!-- Preconexiones para Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="./styles.css">
+  
+  <!-- Favicon (opcional) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%2318b56d'>FL</text></svg>">
+  
+  <!-- Manifest para PWA (opcional) -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FUT Legends">
+</head>
+<body>
+  <!-- Contenedor principal de la app -->
+  <div id="app"></div>
+
+  <!-- SERVICIOS (en orden de dependencia) -->
+  <!-- Storage - Sin dependencias -->
+  <script src="./services/storage.js"></script>
+  
+  <!-- Game - Depende de storage -->
+  <script src="./services/game.js"></script>
+  
+  <!-- Auth - Depende de storage -->
+  <script src="./services/auth.js"></script>
+  
+  <!-- Backend - Depende de storage -->
+  <script src="./services/backend.js"></script>
+
+  <!-- DATOS (sin dependencias de servicios) -->
+  <!-- Stickers - Datos estáticos -->
+  <script src="./data/stickers.js"></script>
+  
+  <!-- Questions - Datos estáticos -->
+  <script src="./data/questions.js"></script>
+  
+  <!-- Challenges - Datos estáticos -->
+  <script src="./data/challenges.js"></script>
+
+  <!-- CONFIGURACIÓN OPCIONAL (descomentar si usas Firebase) -->
+  <!-- 
+  <script>
+    window.FUT_FIREBASE_CONFIG = {
+      enabled: false, // Cambiar a true para habilitar Firebase
+      apiKey: 'YOUR_API_KEY',
+      authDomain: 'YOUR_AUTH_DOMAIN',
+      projectId: 'YOUR_PROJECT_ID',
+      storageBucket: 'YOUR_STORAGE_BUCKET',
+      messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
+      appId: 'YOUR_APP_ID'
+    };
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+  <script>
+    if (window.FUT_FIREBASE_CONFIG?.enabled) {
+      firebase.initializeApp(window.FUT_FIREBASE_CONFIG);
+    }
+  </script>
+  -->
+
+  <!-- APP PRINCIPAL (debe ser el último) -->
+  <script src="./app.js"></script>
+
+  <!-- Google Analytics (opcional) -->
+  <!-- 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+  <!-- Detección de soporte localStorage -->
+  <script>
+    if (!window.FUT_STORAGE?.isAvailable?.()) {
+      console.warn('⚠️ localStorage no disponible. Los datos se perderán al cerrar.');
+    }
+  </script>
+</body>
+</html>
