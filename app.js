@@ -1928,5 +1928,8 @@ function saveAndRender() {
 // INICIALIZACIÓN
 // ============================================================================
 
+// Iniciar eventos
+initializeEventDelegation();
+
 // Iniciar el juego
 render();
