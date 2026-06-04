@@ -135,8 +135,8 @@ function validateAndSanitizeState(obj) {
 function render() {
   if (!state.isSignedIn) {
     app.innerHTML = renderStartScreen();
-    bindStartEvents();
-    return;
+    
+   return;
   }
 
   ensureDailyState();
